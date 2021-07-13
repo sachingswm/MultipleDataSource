@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Entity
-@Table(name="B",schema = "BDB")
+@Table(name="same",schema = "BDB")
 @Data
 public class B {
     @Id

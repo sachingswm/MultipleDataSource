@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Entity
-@Table(name="A",schema = "ADB")
+@Table(name="same",schema = "ADB")
 public class A {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
