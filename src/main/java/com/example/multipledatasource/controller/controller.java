@@ -5,9 +5,9 @@ import com.example.multipledatasource.entity.b.B;
 import com.example.multipledatasource.service.AService;
 import com.example.multipledatasource.service.BService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class controller {
@@ -28,4 +28,11 @@ public class controller {
     {
         bService.saveB(b);
     }
+
+    @GetMapping("/getAllByName/{name}")
+    public List<String> getAllByName(@PathVariable("name") String name)
+    {
+        return  aService.getAllByName(name);
+    }
+
 }

@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ADao extends JpaRepository<A,Integer> {
 
-    @Query(value = "select ADB.same.id,ADB.same.name,BDB.same.id,BDB.same.name from ADB.same,BDB.same where ABD.same.name=?",nativeQuery = true)
-    public void getAllByName(String name);
-
+    @Query(value = "select ADB.same.name from ADB.same where ADB.same.name=:name UNION ALL select BDB.same.name from BDB.same where BDB.same.name=:name",nativeQuery = true)
+    public List<String> getAllByName(String name);
 }
