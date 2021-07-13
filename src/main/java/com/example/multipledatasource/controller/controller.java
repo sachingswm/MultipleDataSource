@@ -1,5 +1,6 @@
 package com.example.multipledatasource.controller;
 
+import com.example.multipledatasource.dto.DemoDto;
 import com.example.multipledatasource.entity.a.A;
 import com.example.multipledatasource.entity.b.B;
 import com.example.multipledatasource.service.AService;
@@ -30,9 +31,10 @@ public class controller {
     }
 
     @GetMapping("/getAllByName/{name}")
-    public List<String> getAllByName(@PathVariable("name") String name)
+    public List<DemoDto> getAllByName(@PathVariable("name") String name)
     {
         return  aService.getAllByName(name);
     }
+
 
 }
