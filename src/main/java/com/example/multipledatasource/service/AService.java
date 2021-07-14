@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -24,11 +25,12 @@ public class AService {
 
 
     public List<DemoDto> getAllByName(String name){
-        List<DemoDto> demoDtos=new ArrayList<>();
-        for(A a: aDao.getAllByName(name))
-        {
-            demoDtos.add(new DemoDto(a.getId(),a.getName()));
-        }
-        return demoDtos;
+//        List<DemoDto> demoDtos=new ArrayList<>();
+//        for(A a: aDao.getAllByName(name))
+//        {
+//            demoDtos.add(new DemoDto(a.getId(),a.getName()));
+//        }
+//        return demoDtos;
+        return aDao.getAllByName(name);
     }
 }
