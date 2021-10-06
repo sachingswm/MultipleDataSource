@@ -1,14 +1,12 @@
 package com.example.multipledatasource.service;
 
-import com.example.multipledatasource.dto.DemoDto;
 import com.example.multipledatasource.entity.a.A;
+import com.example.multipledatasource.entity.a.AC;
+import com.example.multipledatasource.repository.a.ACDao;
 import com.example.multipledatasource.repository.a.ADao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -16,21 +14,21 @@ public class AService {
     @Autowired
     private ADao aDao;
 
+    @Autowired
+    private ACDao acDao;
 
-    public void saveA(A a)
+    public List<A> getAllA()
     {
-        aDao.save(a);
+        return aDao.findAll();
     }
 
+    public List<AC> getAllAC()
+    {
+        return acDao.findAll();
+    }
 
-
-    public List<DemoDto> getAllByName(String name){
-//        List<DemoDto> demoDtos=new ArrayList<>();
-//        for(A a: aDao.getAllByName(name))
-//        {
-//            demoDtos.add(new DemoDto(a.getId(),a.getName()));
-//        }
-//        return demoDtos;
-        return aDao.getAllByName(name);
+    public List<AC> getAllACById(int id)
+    {
+        return acDao.findByA_id(id);
     }
 }
