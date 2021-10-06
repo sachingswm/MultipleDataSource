@@ -1,7 +1,5 @@
-package com.example.multipledatasource.entity.b;
+package com.example.multipledatasource.entity.a;
 
-
-import com.example.multipledatasource.entity.a.AC;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,18 +10,16 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Entity
-@Table(name="sameC",schema = "ADB")
-public class BC {
+@Table(name="sameD",schema = "ADB")
+public class AD {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int b_id;
+    private int a_id;
 
-    public BC(String name,int b_id) {
+    public AD(String name,int a_id) {
         this.name = name;
-        this.b_id=b_id;
+        this.a_id=a_id;
     }
-
-
 }

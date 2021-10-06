@@ -23,9 +23,5 @@ public class B {
         this.name = name;
     }
 
-    public B(A a)
-    {
-        this(a.getName());
-    }
-
+    
 }
